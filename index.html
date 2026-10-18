@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>UART Generator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="stylesheet" href="css/style.css"></head><body>
+<header><h1>UART Generator</h1><label style="margin:0">HDL</label>
+<select id="lang"><option value="v">Verilog</option><option value="sv">SystemVerilog</option></select>
+<button id="theme">Light / Dark</button></header>
+<main>
+<section><h2>Configuration</h2>
+<label>Preset</label><select id="preset"></select>
+<label>Module</label><select id="mod"><option value="tx">UART Transmitter</option><option value="rx">UART Receiver</option><option value="both">Transmitter + Receiver</option></select>
+<label>Clock frequency</label><select id="clk"></select><input id="clkc" type="number" step="any" placeholder="MHz" hidden>
+<label>Baud rate</label><select id="baud"></select><input id="baudc" type="number" step="any" placeholder="baud" hidden>
+<label>Data bits</label><select id="bits"></select>
+<label>Parity</label><select id="par"><option value="none">None</option><option value="even">Even</option><option value="odd">Odd</option></select>
+<label>Stop bits</label><select id="stop"><option>1</option><option>2</option></select>
+<div id="msgs"></div>
+<h2 style="margin-top:12px">Summary</h2><table id="sum"></table>
+</section>
+<section><h2>Frame</h2><div id="frame" class="frame"></div><small id="fexp"></small>
+<h2 style="margin-top:14px">Timing diagram <small>(frame visualization, not a hardware simulation)</small></h2>
+<label style="margin-top:0">Input byte (0x41 hex, or 0b01000001 binary)</label><input id="byte" value="0x41" style="max-width:200px">
+<div id="bmsg"></div><div class="svgw" id="wave"></div>
+</section>
+<section><h2>Generated RTL</h2><div class="row" id="tabs" style="margin:0 0 6px"></div>
+<div class="row" style="margin:0"><button id="copy">Copy</button><button id="dl">Download file</button><button id="dlall">Download all</button></div>
+<small>Saved files get a .txt suffix (e.g. uart_tx.v.txt); remove it after download.</small>
+<pre id="code"></pre></section>
+</main>
+<script src="js/calc.js"></script>
+<script src="js/rtl.js"></script>
+<script src="js/testbench.js"></script>
+<script src="js/ui.js"></script>
+</body></html>
