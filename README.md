@@ -50,7 +50,7 @@ Conventions: synchronous active-high reset; idle line is high; data is sent leas
 
 ## Simulating with Icarus Verilog
 
-Install Icarus Verilog (the Windows installer from bleyer.org/icarus adds `iverilog` and `vvp` to PATH). Put the downloaded files in one folder. Downloads from the hosted page may carry a `.txt` suffix; remove it.
+Install Icarus Verilog (the Windows installer from bleyer.org/icarus adds `iverilog` and `vvp` to PATH). Put the downloaded files in one folder. If a browser or viewer adds a `.txt` suffix to a downloaded file, remove it.
 
 ```
 iverilog -g2012 -Wall -o sim uart_tx.v uart_rx.v uart_top.v tb_uart.sv
